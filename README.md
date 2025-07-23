@@ -30,7 +30,7 @@ This repository contains the code and data to reproduce the figures presented in
 
 ## Getting Started
 
-To recreate the figures, you’ll need to set up the required environment using [Miniconda](https://docs.anaconda.com/miniconda/miniconda-install/). Clone this repository and create the conda environment as follows:
+To recreate the figures, you will need to set up the required environment using [Miniconda](https://docs.anaconda.com/miniconda/miniconda-install/). Clone this repository and create the conda environment as follows:
 
 ```bash
 git clone https://github.com/BakelLab/manuscript_SpikeID.git
