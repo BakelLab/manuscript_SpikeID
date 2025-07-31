@@ -15,7 +15,7 @@ m5 <- sequence_data %>%
   ggplot(aes(x = DOMAIN, y = frequency, fill = MATCH)) +
   geom_bar(stat = "identity", position = "stack") +
   geom_text(aes(y = 1-cumFreq, label = round(frequency, 2)), vjust = 0, colour = "white") +
-  scale_fill_manual(values = c("#56B4E9", "#E69F00")) +  # Adjust colors as needed
+  scale_fill_manual(values = c("#1F78B4", "#FDBF6F")) +  # Adjust colors as needed
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.key.spacing.x = unit(10, "pt")) +
   facet_grid(rows = vars(ASSEMBLY_QUALITY), cols = vars(ASSEMBLY_PIPELINE))

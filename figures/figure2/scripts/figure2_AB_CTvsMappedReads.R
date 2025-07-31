@@ -15,14 +15,16 @@ filtered_data_qc <- read.csv(paste0(data_dir, "/figure2_A.csv"))
 
 #### PLOTTING ####
 # Plot CT values vs number of mapped reads for each run
-t2 <- filtered_data_qc %>% ggplot(aes(y = ct_modified, x = Prefilt_reads, group = set, color = set, shape = ASSEMBLY_QUALITY)) +
+t2 <- filtered_data_qc %>% arrange(set) %>% 
+  ggplot(aes(y = ct_modified, x = Prefilt_reads, group = set, fill = set, color = set, shape = ASSEMBLY_QUALITY)) +
   geom_point(size = 1, alpha = 0.6) + scale_x_log10() +
   geom_smooth(method='lm', formula= y~x) +
   theme_classic() +
   scale_shape_manual(values = c(1, 19), na.value = "lightgrey" ) +
-  scale_color_manual(values = c("grey", "darkorange"), na.value = "lightgrey" ) +
-  geom_hline(yintercept=32, linetype="dashed", color = "darkgrey", size = 0.5) +
-  geom_vline(xintercept=100, linetype="dashed", color = "darkgrey", size = 0.5) +
+  scale_fill_manual(values = c("darkgrey", "#FDBF6F"), na.value = "lightgrey" ) +
+  scale_color_manual(values = c("darkgrey", "#FDBF6F"), na.value = "lightgrey" ) +
+  geom_hline(yintercept=32, linetype="dashed", color = "lightgrey", size = 0.5) +
+  geom_vline(xintercept=100, linetype="dashed", color = "lightgrey", size = 0.5) +
   xlab("Total Reads") + ylab("CT Value") +
   NULL
 
@@ -38,7 +40,7 @@ dt.ct <- dt.ct1 %>% mutate(ct_capped=ifelse(ct_round > 32, 32, ct_round)) %>%
   mutate(fraction = prop.table(count))
 
 # Set color palette
-main_colors <- c("#56B4E9", "#E69F00")
+main_colors <- colorRampPalette(brewer.pal(12, "Paired"))(12)[c(2,7)]
 
 # Plot
 db <- dt.ct %>%
