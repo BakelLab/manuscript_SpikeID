@@ -1,5 +1,5 @@
 comparison,ASSEMBLY_QUALITY,method,matches,n,frequency,cumCount,cumFreq,.group
-who,Passed,as,TRUE,621,1,621,1,1
+who,Passed,as,TRUE,622,1,622,1,1
 clade,Passed,as,FALSE,14,0.02254428341384863,14,0.02,2
 clade,Passed,as,TRUE,607,0.9774557165861514,621,1,2
 p5,Passed,as,FALSE,34,0.05466237942122187,34,0.05,3
